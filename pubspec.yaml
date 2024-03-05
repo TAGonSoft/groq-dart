@@ -1,0 +1,14 @@
+name: groq
+version: 0.0.1
+description: >-
+  The Groq Dart SDK enables developers to use Groq's api.
+repository: #TODO: Add Repository Link
+
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  http: ^1.2.1
+
+dev_dependencies:
+  lints: ^3.0.0
