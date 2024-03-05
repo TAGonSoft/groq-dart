@@ -1,9 +1,3 @@
-library groq;
-
-// export 'package:groq/src/model.dart';
-
-export 'src/init.dart' show Groq;
-export 'src/model.dart' show GroqResponse;
 export 'src/error.dart'
     show
         GroqException,
@@ -15,3 +9,7 @@ export 'src/error.dart'
         RateLimitError,
         InternalServerError,
         APIConnectionError;
+
+export 'src/init.dart' show Groq;
+
+export 'src/model.dart' show GroqResponse;

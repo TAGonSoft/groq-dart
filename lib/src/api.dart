@@ -1,4 +1,4 @@
-import 'package:groq/src/model.dart';
+import 'model.dart';
 
 final class ApiHeaderKeys {
   static const String authorization = 'Authorization';

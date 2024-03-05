@@ -1,6 +1,6 @@
-import 'package:groq/src/api.dart';
-import 'package:groq/src/client.dart';
-import 'package:groq/src/model.dart';
+import 'api.dart';
+import 'client.dart';
+import 'model.dart';
 
 class GroqChat {
   late ApiClient _apiClient;
@@ -25,7 +25,7 @@ class GroqChat {
   }
 
   Future<GroqResponse> sendMessage(String content) async {
-    GroqMessage message = GroqMessage(role: RoleMessage.user, content: content);
+    final message = GroqMessage(role: RoleMessage.user, content: content);
     _messages.add(message);
     final response = await _sendRequest();
     _messages.add(response.choices.first.message);
@@ -42,7 +42,7 @@ class GroqChat {
   }
 
   GroqRequest _generateRequest() {
-    final List<GroqMessage> message = _messages;
+    final message = _messages;
 
     if (_instructions != null) {
       _messages.insert(0, _instructions!);

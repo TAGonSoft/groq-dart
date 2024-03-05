@@ -1,7 +1,7 @@
-import 'package:groq/src/api.dart';
-import 'package:groq/src/client.dart';
-import 'package:groq/src/groq_chat.dart';
-import 'package:groq/src/model.dart';
+import 'api.dart';
+import 'client.dart';
+import 'groq_chat.dart';
+import 'model.dart';
 
 final class Groq {
   ApiClient apiClient;
@@ -16,7 +16,7 @@ final class Groq {
   });
 
   factory Groq({
-    required apiKey,
+    required String apiKey,
     GroqModel model = GroqModel.meta,
     Configuration? configuration,
   }) =>
@@ -26,19 +26,19 @@ final class Groq {
         configuration: configuration,
       );
 
-  setCustomInstructionsWith(String instructions) {
+  void setCustomInstructionsWith(String instructions) {
     _chat.setCustomInstructionsWith(instructions);
   }
 
-  startChat() {
+  void startChat() {
     _chat = GroqChat(apiClient: apiClient, model: model);
   }
 
-  removeCustomInstructions() {
+  void removeCustomInstructions() {
     _chat.removeCustomInstructions();
   }
 
-  clearChat() {
+  void clearChat() {
     _chat.clearChat();
   }
 

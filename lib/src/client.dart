@@ -1,9 +1,10 @@
 import 'dart:convert';
 
-import 'package:groq/src/api.dart';
-import 'package:groq/src/error.dart';
-import 'package:groq/src/model.dart';
 import 'package:http/http.dart' as http;
+
+import 'api.dart';
+import 'error.dart';
+import 'model.dart';
 
 final class ApiClient {
   final String _apiKey;
@@ -24,8 +25,13 @@ final class ApiClient {
     );
 
     if (response.statusCode >= 200 && response.statusCode < 300) {
-      return GroqResponse.fromJson(jsonDecode(response.body));
+      return GroqResponse.fromJson(
+        jsonDecode(response.body) as Map<String, dynamic>,
+      );
     }
-    throw parseErrorFor(response.statusCode, jsonDecode(response.body));
+    throw parseErrorFor(
+      response.statusCode,
+      jsonDecode(response.body) as Map<String, dynamic>,
+    );
   }
 }

@@ -31,13 +31,16 @@ class GroqRequest {
   factory GroqRequest.fromJson(Map<String, dynamic> json) {
     return GroqRequest(
       messages: List<GroqMessage>.from(
-          json['messages'].map((message) => GroqMessage.fromJson(message))),
-      model: json['model'],
-      temperature: json['temperature'],
-      maxTokens: json['max_tokens'],
-      topP: json['top_p'],
-      stream: json['stream'],
-      stop: json['stop'],
+        (json['messages'] as List<Object>).map(
+          (message) => GroqMessage.fromJson(message as Map<String, dynamic>),
+        ),
+      ),
+      model: json['model'] as String,
+      temperature: json['temperature'] as double,
+      maxTokens: json['max_tokens'] as int,
+      topP: json['top_p'] as double,
+      stream: json['stream'] as bool,
+      stop: json['stop'] as String?,
     );
   }
 
@@ -73,16 +76,16 @@ class GroqResponse {
 
   factory GroqResponse.fromJson(Map<String, dynamic> json) {
     return GroqResponse(
-      id: json['id'],
-      object: json['object'],
-      created: json['created'],
-      model: json['model'],
+      id: json['id'] as String,
+      object: json['object'] as String,
+      created: json['created'] as int,
+      model: json['model'] as String,
       choices: List<GroqChoices>.from(
-        json['choices'].map(
-          (choice) => GroqChoices.fromJson(choice),
+        (json['choices'] as List<dynamic>).map(
+          (choice) => GroqChoices.fromJson(choice as Map<String, dynamic>),
         ),
       ),
-      usage: GroqUsage.fromJson(json['usage']),
+      usage: GroqUsage.fromJson(json['usage'] as Map<String, dynamic>),
     );
   }
 
@@ -129,8 +132,8 @@ class GroqChoices {
 
   factory GroqChoices.fromJson(Map<String, dynamic> json) {
     return GroqChoices(
-      index: json['index'],
-      message: GroqMessage.fromJson(json['message']),
+      index: json['index'] as int,
+      message: GroqMessage.fromJson(json['message'] as Map<String, dynamic>),
     );
   }
 

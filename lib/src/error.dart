@@ -87,8 +87,9 @@ final class APIConnectionError implements GroqException {
   String toString() => message;
 }
 
-GroqException parseErrorFor(int errorCode, Map jsonObject) {
-  String errorMessage = jsonObject['error']['message'];
+GroqException parseErrorFor(int errorCode, Map<String, dynamic> jsonObject) {
+  final errorMessage =
+      (jsonObject['error'] as Map<String, dynamic>)['message'].toString();
 
   switch (errorCode) {
     case 400:
