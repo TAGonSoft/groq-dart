@@ -25,5 +25,5 @@ If you use Android Studio or IntelliJ you can use run / debug configurations
 ## Screenshots
 
 <p align="center">
- <img width="35%" src="/screenshots/groq_example_app.png">
+ <img width="35%" src="./screenshots/groq_example_app.png">
 </p>
