@@ -2,7 +2,7 @@ name: groq
 version: 0.0.1
 description: >-
   The Groq Dart SDK enables developers to use Groq's api.
-repository: 'https://github.com/TAGonSoft/groq-dart'
+repository: https://github.com/TAGonSoft/groq-dart
 
 environment:
   sdk: ^3.0.0
