@@ -1,8 +1,9 @@
 name: groq
-version: 0.0.1
+version: 0.0.2
 description: >-
   The Groq Dart SDK enables developers to use Groq's api.
-repository: 'https://github.com/TAGonSoft/groq-dart'
+  Groq is on a mission to set the standard for GenAI inference speed, helping real-time AI applications come to life today.
+repository: https://github.com/TAGonSoft/groq-dart
 
 environment:
   sdk: ^3.0.0

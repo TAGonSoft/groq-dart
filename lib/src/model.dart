@@ -1,14 +1,23 @@
+//
+// Groq Model Option
+//
 enum GroqModel {
   meta,
   mixtral,
 }
 
+//
+// Type of massage roles
+//
 enum RoleMessage {
   system,
   user,
   assistant,
 }
 
+//
+// The request object from Groq API
+//
 class GroqRequest {
   List<GroqMessage> messages;
   String model;
@@ -57,6 +66,9 @@ class GroqRequest {
   }
 }
 
+//
+// The response object received from Groq API
+//
 class GroqResponse {
   String id;
   String object;
@@ -101,6 +113,9 @@ class GroqResponse {
   }
 }
 
+//
+// The message object received or sended to or from Groq API
+//
 class GroqMessage {
   RoleMessage role;
   String content;
@@ -121,6 +136,9 @@ class GroqMessage {
       };
 }
 
+//
+// The message options received from Groq API
+//
 class GroqChoices {
   int index;
   GroqMessage message;
@@ -143,6 +161,9 @@ class GroqChoices {
       };
 }
 
+//
+// The statistics recevied from Groq API with each response
+//
 class GroqUsage {
   int promptTokens;
   double promptTime;

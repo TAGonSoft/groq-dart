@@ -1,3 +1,6 @@
+/// Exception thrown when generating content fails.
+///
+/// The [message] may explain the cause of the failure
 final class GroqException implements Exception {
   final String message;
 
@@ -7,6 +10,7 @@ final class GroqException implements Exception {
   String toString() => 'GenerativeAIException: $message';
 }
 
+/// Exception thrown when the user have a bad request
 final class BadRequestError implements GroqException {
   @override
   final String message;
@@ -17,6 +21,7 @@ final class BadRequestError implements GroqException {
   String toString() => message;
 }
 
+/// Exception thrown when authentication fails
 final class AuthenticationError implements GroqException {
   @override
   final String message;
@@ -27,6 +32,7 @@ final class AuthenticationError implements GroqException {
   String toString() => message;
 }
 
+/// Exception thrown when the user does not have permissions
 final class PermissionDeniedError implements GroqException {
   @override
   final String message;
@@ -37,6 +43,7 @@ final class PermissionDeniedError implements GroqException {
   String toString() => message;
 }
 
+/// Exception thrown when the API is not found
 final class NotFoundError implements GroqException {
   @override
   final String message;
@@ -47,6 +54,7 @@ final class NotFoundError implements GroqException {
   String toString() => message;
 }
 
+/// Exception thrown when entity is unprocessable
 final class UnprocessableEntityError implements GroqException {
   @override
   final String message;
@@ -57,6 +65,7 @@ final class UnprocessableEntityError implements GroqException {
   String toString() => message;
 }
 
+/// Exception thrown when the user hit the limit
 final class RateLimitError implements GroqException {
   @override
   final String message;
@@ -67,6 +76,7 @@ final class RateLimitError implements GroqException {
   String toString() => message;
 }
 
+/// Exception thrown when the server failed to generate content
 final class InternalServerError implements GroqException {
   @override
   final String message;
@@ -77,6 +87,7 @@ final class InternalServerError implements GroqException {
   String toString() => message;
 }
 
+/// Exception thrown when the API failed
 final class APIConnectionError implements GroqException {
   @override
   final String message;
@@ -87,6 +98,7 @@ final class APIConnectionError implements GroqException {
   String toString() => message;
 }
 
+/// Parse error from server
 GroqException parseErrorFor(int errorCode, Map<String, dynamic> jsonObject) {
   final errorMessage =
       (jsonObject['error'] as Map<String, dynamic>)['message'].toString();
