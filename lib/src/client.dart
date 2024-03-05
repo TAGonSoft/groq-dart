@@ -12,6 +12,7 @@ final class ApiClient {
 
   ApiClient({required String apiKey}) : _apiKey = apiKey;
 
+  // Send request to Groq API
   Future<GroqResponse> makeRequest({
     required GroqRequest groqRequest,
   }) async {
