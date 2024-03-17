@@ -29,4 +29,4 @@ export 'src/error.dart'
 
 export 'src/init.dart' show Groq;
 
-export 'src/model.dart' show GroqResponse;
+export 'src/model.dart' show GroqResponse, GroqModel;
