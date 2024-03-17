@@ -4,6 +4,7 @@
 enum GroqModel {
   meta,
   mixtral,
+  gemma,
 }
 
 //
