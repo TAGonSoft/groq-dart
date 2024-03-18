@@ -1,6 +1,9 @@
+## 0.0.3
+- Export Groq model.
+- Add Gemma model.
+
 ## 0.0.2
 - Fix warnings and package scores.
-
 
 ## 0.0.1
 
