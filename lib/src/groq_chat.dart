@@ -66,6 +66,7 @@ class GroqChat {
       topP: _configuration.topP,
       stream: _configuration.stream,
       stop: _configuration.stop,
+      responseFormat: _configuration.responseFormat,
     );
   }
 }

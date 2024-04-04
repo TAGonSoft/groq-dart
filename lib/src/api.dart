@@ -54,6 +54,11 @@ final class Configuration {
   /// like "[end]".
   final String? stop;
 
+  // Response format can be used to specify the format of the response
+  // JSON mode is a beta feature that guarantees all chat completions are valid JSON.
+  // Set responseFormat to {"type": "json_object"} in your chat completion request for JSON mode.
+  final Map<String, dynamic>? responseFormat;
+
   Configuration({
     required this.model,
     this.temperature = 0.5,
@@ -61,5 +66,6 @@ final class Configuration {
     this.topP = 1.0,
     this.stream = false,
     this.stop,
+    this.responseFormat,
   });
 }

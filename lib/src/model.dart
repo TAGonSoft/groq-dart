@@ -27,6 +27,7 @@ class GroqRequest {
   double topP;
   bool stream;
   String? stop;
+  Map<String, dynamic>? responseFormat;
 
   GroqRequest({
     required this.messages,
@@ -36,6 +37,7 @@ class GroqRequest {
     required this.topP,
     required this.stream,
     required this.stop,
+    required this.responseFormat,
   });
 
   factory GroqRequest.fromJson(Map<String, dynamic> json) {
@@ -51,6 +53,7 @@ class GroqRequest {
       topP: json['top_p'] as double,
       stream: json['stream'] as bool,
       stop: json['stop'] as String?,
+      responseFormat: json['response_format'] as Map<String, dynamic>?,
     );
   }
 
@@ -63,6 +66,7 @@ class GroqRequest {
       'top_p': topP,
       'stream': stream,
       'stop': stop,
+      'response_format': responseFormat,
     };
   }
 }
@@ -127,8 +131,7 @@ class GroqMessage {
   });
 
   GroqMessage.fromJson(Map<String, dynamic> json)
-      : role = RoleMessage.values.firstWhere(
-            (element) => element.toString().split('.').last == json['role']),
+      : role = RoleMessage.values.firstWhere((element) => element.toString().split('.').last == json['role']),
         content = json['content'] as String;
 
   Map<String, dynamic> toJson() => {
