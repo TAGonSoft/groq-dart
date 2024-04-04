@@ -1,3 +1,6 @@
+## 0.0.4
+- Fix typo.
+
 ## 0.0.3
 - Export Groq model.
 - Add Gemma model.
