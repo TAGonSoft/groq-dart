@@ -2,9 +2,13 @@
 // Groq Model Option
 //
 enum GroqModel {
-  meta,
-  mixtral,
-  gemma,
+  meta('llama2-70b-4096'),
+  mixtral('mixtral-8x7b-32768'),
+  gemma('gemma-7b-it');
+
+  const GroqModel(this.name);
+
+  final String name;
 }
 
 //
