@@ -8,16 +8,16 @@ import 'model.dart';
 /// record the content until the user clean the chat message.
 class GroqChat {
   late ApiClient _apiClient;
-  late Configuration _configuration;
+  late GroqConfiguration _configuration;
   List<GroqMessage> _messages = [];
   GroqMessage? _instructions;
 
   GroqChat({
     required ApiClient apiClient,
-    required GroqModel model,
+    required GroqConfiguration configuration,
   }) {
     _apiClient = apiClient;
-    _configuration = Configuration(model: model);
+    _configuration = configuration;
   }
 
   // Set instruction to the model

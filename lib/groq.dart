@@ -15,6 +15,7 @@
 /// }
 library;
 
+export 'src/api.dart' show GroqConfiguration;
 export 'src/error.dart'
     show
         GroqException,
@@ -26,7 +27,5 @@ export 'src/error.dart'
         RateLimitError,
         InternalServerError,
         APIConnectionError;
-
 export 'src/init.dart' show Groq;
-
 export 'src/model.dart' show GroqResponse, GroqModel;

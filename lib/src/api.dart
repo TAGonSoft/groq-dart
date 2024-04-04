@@ -15,22 +15,13 @@ final class ApiHeaderValues {
 }
 
 // Groq API Configuration model
-final class Configuration {
+final class GroqConfiguration {
   /// The model which will generate the completion.
   /// Some models are suitable for natural language
   /// tasks, others specialize in code.
   final GroqModel model;
 
-  String get modelName {
-    switch (model) {
-      case GroqModel.meta:
-        return 'llama2-70b-4096';
-      case GroqModel.mixtral:
-        return 'mixtral-8x7b-32768';
-      case GroqModel.gemma:
-        return 'gemma-7b-it';
-    }
-  }
+  String get modelName => model.name;
 
   /// Controls randomness: lowering results in less
   /// random completions. As the temperature approaches
@@ -59,7 +50,7 @@ final class Configuration {
   // Set responseFormat to {"type": "json_object"} in your chat completion request for JSON mode.
   final Map<String, dynamic>? responseFormat;
 
-  Configuration({
+  const GroqConfiguration({
     required this.model,
     this.temperature = 0.5,
     this.maxTokens = 1024,
