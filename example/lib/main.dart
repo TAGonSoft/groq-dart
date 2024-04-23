@@ -36,7 +36,10 @@ class ChatScreenState extends State<ChatScreen> {
   final ScrollController _scrollController = ScrollController();
 
   /// flutter run --dart-define=groqApiKey='Your Api Key'
-  final _groq = Groq(apiKey: const String.fromEnvironment('groqApiKey'));
+  final _groq = Groq(
+    const String.fromEnvironment('groqApiKey'),
+    model: GroqModel.llama370b8192, // Set a different model
+  );
 
   @override
   void initState() {
