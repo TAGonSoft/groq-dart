@@ -21,9 +21,9 @@ final class Groq {
   //
   // Create a Groq objects
   //
-  factory Groq({
-    required String apiKey,
-    GroqModel model = GroqModel.meta,
+  factory Groq(
+    String apiKey, {
+    GroqModel model = GroqModel.llama270b4096,
     Configuration? configuration,
   }) =>
       Groq._withApiClient(
@@ -37,7 +37,7 @@ final class Groq {
     _chat = GroqChat(apiClient: apiClient, model: model);
   }
 
-  // Set intructions to the model of the chat
+  // Set instructions to the model of the chat
   void setCustomInstructionsWith(String instructions) {
     _chat.setCustomInstructionsWith(instructions);
   }
