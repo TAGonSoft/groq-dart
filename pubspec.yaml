@@ -1,5 +1,5 @@
 name: groq
-version: 0.0.4
+version: 0.0.5
 description: >-
   The Groq Dart SDK enables developers to use Groq's api.
   Groq is on a mission to set the standard for GenAI inference speed, helping real-time AI applications come to life today.
