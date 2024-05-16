@@ -1,18 +1,19 @@
 //
 // Groq Model Option
+// This should just be a string
+// enum GroqModel {
+//   meta('llama2-70b-4096'),
+//   mixtral('mixtral-8x7b-32768'),
+//   gemma('gemma-7b-it');
+
+//   const GroqModel(this.name);
+
+//   final String name;
+// }
+
+
 //
-enum GroqModel {
-  meta('llama2-70b-4096'),
-  mixtral('mixtral-8x7b-32768'),
-  gemma('gemma-7b-it');
-
-  const GroqModel(this.name);
-
-  final String name;
-}
-
-//
-// Type of massage roles
+// Type of message roles
 //
 enum RoleMessage {
   system,

@@ -25,7 +25,7 @@ final class Groq {
   }) =>
       Groq._withApiClient(
         apiClient: ApiClient(apiKey: apiKey),
-        configuration: configuration ?? GroqConfiguration(model: GroqModel.meta),
+        configuration: configuration ?? GroqConfiguration(model: 'gemma-7b-it'),
       );
 
   // Start the chat model

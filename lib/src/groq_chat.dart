@@ -60,7 +60,7 @@ class GroqChat {
 
     return GroqRequest(
       messages: message,
-      model: _configuration.modelName,
+      model: _configuration.model,
       temperature: _configuration.temperature,
       maxTokens: _configuration.maxTokens,
       topP: _configuration.topP,

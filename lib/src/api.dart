@@ -1,5 +1,3 @@
-import 'model.dart';
-
 // Groq API Header Keys
 final class ApiHeaderKeys {
   static const String authorization = 'Authorization';
@@ -19,9 +17,7 @@ final class GroqConfiguration {
   /// The model which will generate the completion.
   /// Some models are suitable for natural language
   /// tasks, others specialize in code.
-  final GroqModel model;
-
-  String get modelName => model.name;
+  final String model;
 
   /// Controls randomness: lowering results in less
   /// random completions. As the temperature approaches
