@@ -2,10 +2,13 @@
 // Groq Model Option
 //
 enum GroqModel {
-  meta,
   mixtral,
   gemma,
   gemma2,
+  llama2,
+  llama3_70B,
+  llama3_8B,
+  llamaGuard3_8B,
 }
 
 //

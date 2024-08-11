@@ -23,14 +23,20 @@ final class Configuration {
 
   String get modelName {
     switch (model) {
-      case GroqModel.meta:
-        return 'llama2-70b-4096';
       case GroqModel.mixtral:
         return 'mixtral-8x7b-32768';
       case GroqModel.gemma:
         return 'gemma-7b-it';
       case GroqModel.gemma2:
-        return 'gemma2-9b-it'; 
+        return 'gemma2-9b-it';
+      case GroqModel.llama2:
+        return 'llama2-70b-4096';
+      case GroqModel.llama3_8B:
+        return 'llama3-8b-8192';
+      case GroqModel.llama3_70B:
+        return 'llama3-70b-8192';
+      case GroqModel.llamaGuard3_8B:
+        return 'llama-guard-3-8b';
     }
   }
 
