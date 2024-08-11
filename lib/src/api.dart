@@ -29,6 +29,8 @@ final class Configuration {
         return 'mixtral-8x7b-32768';
       case GroqModel.gemma:
         return 'gemma-7b-it';
+      case GroqModel.gemma2:
+        return 'gemma2-9b-it'; 
     }
   }
 
