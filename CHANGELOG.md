@@ -1,3 +1,7 @@
+## 0.0.5
+- Update AI models
+- Update example app
+
 ## 0.0.4
 - Fix typo.
 

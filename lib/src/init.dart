@@ -37,7 +37,7 @@ final class Groq {
     _chat = GroqChat(apiClient: apiClient, model: model);
   }
 
-  // Set intructions to the model of the chat
+  // Set instructions to the model of the chat
   void setCustomInstructionsWith(String instructions) {
     _chat.setCustomInstructionsWith(instructions);
   }

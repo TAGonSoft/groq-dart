@@ -2,6 +2,7 @@
 // Groq Model Option
 //
 enum GroqModel {
+  feat/gemma2-llama3-support
   mixtral,
   gemma,
   gemma2,
