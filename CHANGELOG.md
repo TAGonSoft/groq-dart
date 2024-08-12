@@ -1,3 +1,6 @@
+## 0.0.7
+- Update example app
+
 ## 0.0.6
 - Update AI models
 
