@@ -1,5 +1,5 @@
 name: groq
-version: 0.0.5
+version: 0.0.6
 
 description: >-
   The Groq Dart SDK enables developers to use Groq's api.
