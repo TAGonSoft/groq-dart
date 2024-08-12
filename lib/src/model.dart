@@ -2,14 +2,15 @@
 // Groq Model Option
 //
 enum GroqModel {
-  feat/gemma2-llama3-support
-  mixtral,
-  gemma,
-  gemma2,
-  llama2,
-  llama3_70B,
-  llama3_8B,
-  llamaGuard3_8B,
+  gemma2_9b_it,
+  gemma_7b_it,
+  llama_31_70b_versatile,
+  llama_31_8b_instant,
+  llama3_70b_8192,
+  llama3_8b_8192,
+  llama_guard_3_8b,
+  mixtral_8x7b_32768,
+  whisper_large_v3,
 }
 
 //
