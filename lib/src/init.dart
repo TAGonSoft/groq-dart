@@ -21,9 +21,9 @@ final class Groq {
   //
   // Create a Groq objects
   //
-  factory Groq(
-    String apiKey, {
-    GroqModel model = GroqModel.llama270b4096,
+  factory Groq({
+    required String apiKey,
+    GroqModel model = GroqModel.llama3_8B,
     Configuration? configuration,
   }) =>
       Groq._withApiClient(
