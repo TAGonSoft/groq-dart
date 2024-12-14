@@ -8,7 +8,7 @@ import 'model.dart';
 //
 final class Groq {
   ApiClient apiClient;
-  GroqModel model;
+  String model;
   Configuration? configuration;
   late GroqChat _chat;
 
@@ -23,7 +23,7 @@ final class Groq {
   //
   factory Groq({
     required String apiKey,
-    GroqModel model = GroqModel.llama3_8b_8192,
+    required String model,
     Configuration? configuration,
   }) =>
       Groq._withApiClient(

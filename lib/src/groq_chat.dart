@@ -14,7 +14,7 @@ class GroqChat {
 
   GroqChat({
     required ApiClient apiClient,
-    required GroqModel model,
+    required String model,
   }) {
     _apiClient = apiClient;
     _configuration = Configuration(model: model);
@@ -60,7 +60,7 @@ class GroqChat {
 
     return GroqRequest(
       messages: message,
-      model: _configuration.modelName,
+      model: _configuration.model,
       temperature: _configuration.temperature,
       maxTokens: _configuration.maxTokens,
       topP: _configuration.topP,
