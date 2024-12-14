@@ -7,11 +7,11 @@ build/
 # If you're building an application, you may want to check-in your pubspec.lock
 pubspec.lock
 
-# Directory created by dartdoc
+# Directory created by dart doc
 # If you don't generate documentation locally you can remove this line.
 doc/api/
 
-# dotenv environment variables file
+# dot env environment variables file
 .env*
 
 # Avoid committing generated Javascript files:
@@ -28,3 +28,4 @@ doc/api/
 .DS_Store
 .idea
 .metadata
+.vscode/
