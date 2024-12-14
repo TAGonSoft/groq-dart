@@ -1,29 +1,47 @@
+# Groq Chat Flutter Example
 
-# Flutter Groq AI sample
+## Overview
+This is a simple Flutter chat application demonstrating the use of the Groq Dart package for conversational AI interactions.
 
-A Flutter chat application that uses the `groq` package.
+## Prerequisites
+- Flutter SDK
+- Groq API Key
 
-## Getting started
+## Setup
 
-To use the Groq API, you'll need an API key. If you don't already have one, 
-create a key in GroqCloud: https://console.groq.com/playground.
+### 1. Obtain Groq API Key
+- Sign up at [Groq Developer Portal](https://console.groq.com/)
+- Create an API key
 
-When running the app, include your API key using the `--dart-define` flag:
+### 2. Run the Application
 
 ```bash
-flutter run --dart-define=groqApiKey='Your Api Key'
+flutter pub get
+flutter run --dart-define=groqApiKey='YOUR_GROQ_API_KEY'
 ```
 
-If you use VSCode, you can [specify `--dart-define`
-variables](https://dartcode.org/docs/using-dart-define-in-flutter/) in your
-launch.json file.
+## Features
+- Real-time chat interface
+- AI responses using Groq's language model
+- Error handling
+- Chat clearing functionality
 
-If you use Android Studio or IntelliJ you can use run / debug configurations
-(https://www.jetbrains.com/help/idea/run-debug-configuration.html).
-
-
-## Screenshots
-
+## Screenshot
 <p align="center">
  <img width="35%" src="./screenshots/groq_example_app.png">
 </p>
+
+## Configuration
+- Default model: `gemma-7b-it`
+- You can change the model in the `_groq` initialization
+
+## Customization
+Modify the `setCustomInstructionsWith()` method to adjust the AI's behavior and personality.
+
+## Troubleshooting
+- Ensure your API key is correctly set
+- Check internet connectivity
+- Verify Groq service status
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first.
