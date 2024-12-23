@@ -1,3 +1,8 @@
+## 1.0.0
+- Replaced Enum with String Selection for Model to improve flexibility.
+- Updated `.gitignore` file for better repository management.
+- Enhanced README file with updated examples and additional details.
+
 ## 0.0.7
 - Update example app
 
