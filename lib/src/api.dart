@@ -1,5 +1,3 @@
-import 'model.dart';
-
 // Groq API Header Keys
 final class ApiHeaderKeys {
   static const String authorization = 'Authorization';
@@ -19,30 +17,7 @@ final class Configuration {
   /// The model which will generate the completion.
   /// Some models are suitable for natural language
   /// tasks, others specialize in code.
-  final GroqModel model;
-
-  String get modelName {
-    switch (model) {
-      case GroqModel.gemma2_9b_it:
-        return 'gemma2-9b-it';
-      case GroqModel.gemma_7b_it:
-        return 'gemma-7b-it';
-      case GroqModel.llama_31_70b_versatile:
-        return 'llama-3.1-70b-versatile';
-      case GroqModel.llama_31_8b_instant:
-        return 'llama-3.1-8b-instant';
-      case GroqModel.llama3_70b_8192:
-        return 'llama3-70b-8192';
-      case GroqModel.llama3_8b_8192:
-        return 'llama3-8b-8192';
-      case GroqModel.llama_guard_3_8b:
-        return 'llama-guard-3-8b';
-      case GroqModel.mixtral_8x7b_32768:
-        return 'mixtral-8x7b-32768';
-      case GroqModel.whisper_large_v3:
-        return 'whisper-large-v3';
-    }
-  }
+  final String model;
 
   /// Controls randomness: lowering results in less
   /// random completions. As the temperature approaches

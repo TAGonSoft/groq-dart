@@ -38,7 +38,7 @@ class ChatScreenState extends State<ChatScreen> {
   /// flutter run --dart-define=groqApiKey='Your Api Key'
   final _groq = Groq(
     apiKey: const String.fromEnvironment('groqApiKey'),
-    model: GroqModel.gemma2_9b_it, // Set a different model
+    model: "gemma-7b-it", // Set a different model
   );
 
   @override
