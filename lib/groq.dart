@@ -15,6 +15,7 @@
 /// }
 library;
 
+export 'src/api.dart' show Configuration;
 export 'src/error.dart'
     show
         GroqException,
