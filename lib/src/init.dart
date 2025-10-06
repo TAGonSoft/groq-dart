@@ -8,14 +8,12 @@ import 'model.dart';
 //
 final class Groq {
   ApiClient apiClient;
-  String model;
-  Configuration? configuration;
+  Configuration configuration;
   late GroqChat _chat;
 
   Groq._withApiClient({
     required this.apiClient,
-    required this.model,
-    this.configuration,
+    required this.configuration,
   });
 
   //
@@ -23,18 +21,16 @@ final class Groq {
   //
   factory Groq({
     required String apiKey,
-    required String model,
-    Configuration? configuration,
+    required Configuration configuration,
   }) =>
       Groq._withApiClient(
         apiClient: ApiClient(apiKey: apiKey),
-        model: model,
         configuration: configuration,
       );
 
   // Start the chat model
   void startChat() {
-    _chat = GroqChat(apiClient: apiClient, model: model);
+    _chat = GroqChat(apiClient: apiClient, configuration: configuration);
   }
 
   // Set instructions to the model of the chat
