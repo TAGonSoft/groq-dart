@@ -1,6 +1,9 @@
+## 1.1.1
+- Updated `README.md` file.
+
 ## 1.1.0
 - Updated the Groq package to work with an configuration model to be able to configure more easly the api. 
-- Updated the Groq example with the latest changes
+- Updated the Groq example with the latest changes.
 - Updated `.gitignore` file for better repository management.
 
 ## 1.0.0
