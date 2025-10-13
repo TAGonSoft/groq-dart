@@ -34,7 +34,7 @@ final class Configuration {
 
   // Allowed values: none, default, low, medium, high
   // qwen3 models support the following values Set to 'none' to disable reasoning.
-  // Set to 'default' or null to let Qwen reason. openai/gpt-oss-20b and
+  // Set to 'default' or null to let Qwen reason.openai/gpt-oss-20b and
   // openai/gpt-oss-120b support 'low', 'medium', or 'high'. 'medium' is the default value.
   final String? reasoningEffort;
 

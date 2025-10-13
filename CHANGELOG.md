@@ -1,3 +1,8 @@
+## 1.1.0
+- Updated the Groq package to work with an configuration model to be able to configure more easly the api. 
+- Updated the Groq example with the latest changes
+- Updated `.gitignore` file for better repository management.
+
 ## 1.0.0
 - Replaced Enum with String Selection for Model to improve flexibility.
 - Updated `.gitignore` file for better repository management.
