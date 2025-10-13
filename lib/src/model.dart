@@ -1,6 +1,8 @@
 //
 // Type of massage roles
 //
+import 'api.dart';
+
 enum RoleMessage {
   system,
   user,
@@ -12,48 +14,17 @@ enum RoleMessage {
 //
 class GroqRequest {
   List<GroqMessage> messages;
-  String model;
-  double temperature;
-  int maxTokens;
-  double topP;
-  bool stream;
-  String? stop;
+  Configuration configuration;
 
   GroqRequest({
     required this.messages,
-    required this.model,
-    required this.temperature,
-    required this.maxTokens,
-    required this.topP,
-    required this.stream,
-    required this.stop,
+    required this.configuration,
   });
-
-  factory GroqRequest.fromJson(Map<String, dynamic> json) {
-    return GroqRequest(
-      messages: List<GroqMessage>.from(
-        (json['messages'] as List<Object>).map(
-          (message) => GroqMessage.fromJson(message as Map<String, dynamic>),
-        ),
-      ),
-      model: json['model'] as String,
-      temperature: json['temperature'] as double,
-      maxTokens: json['max_tokens'] as int,
-      topP: json['top_p'] as double,
-      stream: json['stream'] as bool,
-      stop: json['stop'] as String?,
-    );
-  }
 
   Map<String, dynamic> toJson() {
     return {
       'messages': messages.map((message) => message.toJson()).toList(),
-      'model': model,
-      'temperature': temperature,
-      'max_tokens': maxTokens,
-      'top_p': topP,
-      'stream': stream,
-      'stop': stop,
+      ...configuration.toNonNullMap(),
     };
   }
 }
