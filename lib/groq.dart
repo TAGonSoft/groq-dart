@@ -28,4 +28,16 @@ export 'src/error.dart'
         InternalServerError,
         APIConnectionError;
 export 'src/init.dart' show Groq;
-export 'src/model.dart' show GroqResponse;
+export 'src/models/request_models/compound_custom.dart'
+    show
+        CompoundCustom,
+        CompoundCustomModels,
+        CompoundCustomTools,
+        WolframSettingsConfiguration;
+export 'src/models/request_models/response_format.dart' show ResponseFormat;
+export 'src/models/request_models/search_settings.dart' show SearchSettings;
+export 'src/models/request_models/tool.dart' show Tool;
+export 'src/models/request_models/tool_choice.dart' show ToolChoice;
+export 'src/models/response_models/groq_response.dart' show GroqResponse;
+export 'src/models/response_models/mcp_list_tools.dart'
+    show McpListTools, McpTool;

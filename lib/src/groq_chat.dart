@@ -1,6 +1,9 @@
 import 'api.dart';
 import 'client.dart';
-import 'model.dart';
+import 'models/groq_message.dart';
+import 'models/request_models/groq_request.dart';
+import 'models/response_models/groq_response.dart';
+import 'models/role_message.dart';
 
 /// A back-and-forth chat with a generative model.
 ///

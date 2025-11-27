@@ -148,7 +148,6 @@ class ChatScreenState extends State<ChatScreen> {
   _sendMessage(String text) async {
     try {
       GroqResponse response = await _groq.sendMessage(text);
-
       ChatMessage responseMessage = ChatMessage(
         text: response.choices.first.message.content,
         isUserMessage: false,
