@@ -1,12 +1,12 @@
 /// Custom configuration of models and tools for Compound.
 ///
 class CompoundCustom {
-  const CompoundCustom({this.models, this.tools});
-
   final CompoundCustomModels? models;
 
   // Configuration options for tools available to Compound.
   final CompoundCustomTools? tools;
+
+  const CompoundCustom({this.models, this.tools});
 
   Map<String, dynamic> toNonNullMap() {
     final map = <String, dynamic>{};
