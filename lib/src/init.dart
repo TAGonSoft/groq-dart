@@ -1,7 +1,7 @@
 import 'api.dart';
 import 'client.dart';
 import 'groq_chat.dart';
-import 'model.dart';
+import 'models/response_models/response.dart';
 
 //
 // Groq Main Interface
