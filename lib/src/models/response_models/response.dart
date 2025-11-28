@@ -1,6 +1,6 @@
-import 'groq_choices.dart';
-import 'groq_usage.dart';
-import 'groq_usage_breakdown.dart';
+import 'choices.dart';
+import 'usage.dart';
+import 'usage_breakdown.dart';
 import 'mcp_list_tools.dart';
 import 'x_groq.dart';
 

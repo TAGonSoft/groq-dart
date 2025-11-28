@@ -3,13 +3,28 @@
 //
 class GroqUsage {
   int promptTokens;
+  // Time spent processing input tokens
   double promptTime;
+
+  // Number of tokens in the generated completion.
   int completionTokens;
+
+  // Time spent generating tokens
   double completionTime;
+
+  // Total number of tokens used in the request (prompt + completion).
   int totalTokens;
+
+  // ompletion time and prompt time combined
   double totalTime;
+
+  // Time the requests was spent queued
   double queueTime;
+
+  // Breakdown of tokens in the completion.
   GroqUsageCompletionTokensDetails? completionTokensDetails;
+
+  // Breakdown of tokens in the prompt.
   GroqPromptTokensDetails? promptTokensDetails;
 
   GroqUsage({
@@ -52,6 +67,7 @@ class GroqUsage {
 }
 
 class GroqUsageCompletionTokensDetails {
+  // Number of tokens used for reasoning (for reasoning models).
   final int reasoningTokens;
 
   GroqUsageCompletionTokensDetails({required this.reasoningTokens});
@@ -68,6 +84,7 @@ class GroqUsageCompletionTokensDetails {
 }
 
 class GroqPromptTokensDetails {
+  // Number of tokens that were cached and reused
   final int cachedTokens;
 
   GroqPromptTokensDetails({required this.cachedTokens});

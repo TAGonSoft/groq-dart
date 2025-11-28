@@ -1,11 +1,15 @@
-//
-// The message object received or sended to or from Groq API
-//
-
 import 'role_message.dart';
 
+/// A message in a chat conversation with the Groq API.
+///
+/// Messages are the building blocks of a conversation. Each message has a
+/// [role] indicating who sent it (system, user, or assistant) and [content]
+/// containing the actual text.
 class GroqMessage {
+  /// The role of the message author (system, user, or assistant).
   RoleMessage role;
+
+  /// The text content of the message.
   String content;
 
   GroqMessage({

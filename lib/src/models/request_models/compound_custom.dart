@@ -47,6 +47,7 @@ class CompoundCustomModels {
   }
 }
 
+// Configuration options for tools available to Compound.
 class CompoundCustomTools {
   const CompoundCustomTools({this.enabledTools, this.wolframSettings});
 

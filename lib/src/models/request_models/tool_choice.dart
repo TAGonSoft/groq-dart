@@ -8,16 +8,9 @@
 sealed class ToolChoice {
   const ToolChoice();
 
-  /// Model will not call any tool.
   const factory ToolChoice.none() = NoneToolChoice;
-
-  /// Model can choose between generating a message or calling tools.
   const factory ToolChoice.auto() = AutoToolChoice;
-
-  /// Model must call one or more tools.
   const factory ToolChoice.required() = RequiredToolChoice;
-
-  /// Force the model to call a specific function by name.
   const factory ToolChoice.function({required String name}) =
       FunctionToolChoice;
 

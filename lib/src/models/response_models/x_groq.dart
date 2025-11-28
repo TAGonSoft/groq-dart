@@ -1,7 +1,13 @@
 /// Groq-specific metadata for non-streaming chat completion responses.
 class XGroq {
+  /// A groq request ID which can be used to refer to a specific request to groq support.
   final String id;
+
+  /// The seed used for the request.
+  /// See the seed property on CreateChatCompletionRequest for more details.
   final int? seed;
+
+  /// Additional Groq-specific usage metrics (hardware cache statistics).
   final XGroqUsage? usage;
 
   XGroq({

@@ -1,5 +1,13 @@
 /// Response format configuration for Groq API.
 ///
+/// An object specifying the format that the model must output.
+/// Setting to { "type": "json_schema", "json_schema": {...} } enables
+/// Structured Outputs which ensures the model will match your supplied
+///  JSON schema. json_schema response format is only available on
+/// supported models. Setting to { "type": "json_object" } enables the
+/// older JSON mode, which ensures the message the model generates is
+/// valid JSON. Using json_schema is preferred for models that support it.
+///
 /// Use one of the factory constructors to create a response format:
 /// - [ResponseFormat.text] - Default text output
 /// - [ResponseFormat.jsonObject] - Ensures valid JSON output
@@ -26,7 +34,6 @@ sealed class ResponseFormat {
   Map<String, dynamic> toNonNullMap();
 }
 
-/// Text response format - default behavior.
 final class TextResponseFormat extends ResponseFormat {
   const TextResponseFormat();
 
@@ -34,8 +41,6 @@ final class TextResponseFormat extends ResponseFormat {
   Map<String, dynamic> toNonNullMap() => {'type': 'text'};
 }
 
-/// JSON object response format.
-/// Ensures the message the model generates is valid JSON.
 final class JsonObjectResponseFormat extends ResponseFormat {
   const JsonObjectResponseFormat();
 
@@ -43,19 +48,23 @@ final class JsonObjectResponseFormat extends ResponseFormat {
   Map<String, dynamic> toNonNullMap() => {'type': 'json_object'};
 }
 
-/// JSON schema response format for structured outputs.
-/// Ensures the model will match your supplied JSON schema.
 final class JsonSchemaResponseFormat extends ResponseFormat {
   /// The name of the response format.
+  /// Must be a-z, A-Z, 0-9, or contain underscores and dashes,
+  /// with a maximum length of 64.
   final String name;
 
   /// The JSON schema that the model must match.
   final Map<String, dynamic> schema;
 
-  /// Optional description of the response format.
+  /// A description of what the response format is for,
+  /// used by the model to determine how to respond in the format.
   final String? description;
 
-  /// Whether to enable strict schema adherence.
+  /// Whether to enable strict schema adherence when generating the output.
+  /// If set to true, the model will always follow the exact schema
+  /// defined in the schema field. Only a subset of JSON Schema is
+  /// supported when strict is true.
   final bool? strict;
 
   const JsonSchemaResponseFormat({

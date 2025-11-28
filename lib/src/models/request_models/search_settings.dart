@@ -1,16 +1,23 @@
 /// Settings for web search functionality when the model uses a web search tool.
 class SearchSettings {
+  /// Name of country to prioritize search results from
+  final String? country;
+
+  /// A list of domains to exclude from the search results.
+  final List<String>? excludeDomains;
+
+  /// A list of domains to include in the search results.
+  final List<String>? includeDomains;
+
+  /// Whether to include images in the search results.
+  final bool? includeImages;
+
   const SearchSettings({
     this.country,
     this.excludeDomains,
     this.includeDomains,
     this.includeImages,
   });
-
-  final String? country;
-  final List<String>? excludeDomains;
-  final List<String>? includeDomains;
-  final bool? includeImages;
 
   Map<String, dynamic> toNonNullMap() {
     final map = <String, dynamic>{};

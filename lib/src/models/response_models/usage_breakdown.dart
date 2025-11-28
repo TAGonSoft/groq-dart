@@ -1,9 +1,9 @@
-import 'groq_usage.dart';
+import 'usage.dart';
 
 /// Usage statistics for compound AI completion requests.
 /// Contains breakdown of usage by individual models.
-///
 class GroqUsageBreakdown {
+  /// List of models used in the request and their individual usage statistics.
   final List<GroqModelUsage> models;
 
   GroqUsageBreakdown({required this.models});
@@ -23,9 +23,11 @@ class GroqUsageBreakdown {
       };
 }
 
-/// Usage statistics for a specific model in a compound request.
 class GroqModelUsage {
+  /// The name/identifier of the model used
   final String model;
+
+  /// Usage statistics for the completion request.
   final GroqUsage usage;
 
   GroqModelUsage({required this.model, required this.usage});
