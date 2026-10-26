@@ -1,5 +1,7 @@
 # Groq Dart Package
 
+Built and maintained by [TAGonSoft](https://tagonsoft.com), an AI-native development and AI integrations studio. Listed in Groq's official [community libraries](https://console.groq.com/docs/libraries).
+
 ## Overview
 This Dart package provides a simple and elegant integration with the Groq AI API, allowing developers to easily incorporate conversational AI capabilities into their Flutter applications.
 
