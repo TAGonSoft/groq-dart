@@ -35,10 +35,16 @@ class ChatScreenState extends State<ChatScreen> {
   final List<ChatMessage> _messages = <ChatMessage>[];
   final ScrollController _scrollController = ScrollController();
 
+  final groqConfiguration = Configuration(
+    model: "qwen/qwen3-32b", // Set a different model
+    temperature: 0.7,
+    seed: 10,
+  );
+
   /// flutter run --dart-define=groqApiKey='Your Api Key'
-  final _groq = Groq(
+  late final _groq = Groq(
     apiKey: const String.fromEnvironment('groqApiKey'),
-    model: "gemma-7b-it", // Set a different model
+    configuration: groqConfiguration,
   );
 
   @override

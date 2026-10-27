@@ -14,10 +14,10 @@ class GroqChat {
 
   GroqChat({
     required ApiClient apiClient,
-    required String model,
+    required Configuration configuration,
   }) {
     _apiClient = apiClient;
-    _configuration = Configuration(model: model);
+    _configuration = configuration;
   }
 
   // Set instruction to the model
@@ -60,12 +60,7 @@ class GroqChat {
 
     return GroqRequest(
       messages: message,
-      model: _configuration.model,
-      temperature: _configuration.temperature,
-      maxTokens: _configuration.maxTokens,
-      topP: _configuration.topP,
-      stream: _configuration.stream,
-      stop: _configuration.stop,
+      configuration: _configuration,
     );
   }
 }

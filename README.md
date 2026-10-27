@@ -19,7 +19,7 @@ Add the following to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  groq: ^latest_version
+  groq: ^1.1.1
 ```
 
 Then run:
@@ -42,9 +42,16 @@ flutter run --dart-define=groqApiKey='YOUR_GROQ_API_KEY'
 import 'package:groq/groq.dart';
 
 // Initialize Groq client
-final groq = Groq(
+final groqConfiguration = Configuration(
+  model: "qwen/qwen3-32b", // Set a different model
+  temperature: 0.7,
+  seed: 10,
+);
+
+/// flutter run --dart-define=groqApiKey='Your Api Key'
+late final _groq = Groq(
   apiKey: const String.fromEnvironment('groqApiKey'),
-  model: "gemma-7b-it", // Optional: specify a model
+  configuration: groqConfiguration,
 );
 
 // Start a chat session
@@ -78,53 +85,154 @@ class ChatScreen extends StatefulWidget {
   _ChatScreenState createState() => _ChatScreenState();
 }
 
-class _ChatScreenState extends State<ChatScreen> {
-  final _groq = Groq(
-    apiKey: const String.fromEnvironment('groqApiKey'),
-    model: "gemma-7b-it",
+class ChatScreenState extends State<ChatScreen> {
+  final TextEditingController _textController = TextEditingController();
+  final List<ChatMessage> _messages = <ChatMessage>[];
+  final ScrollController _scrollController = ScrollController();
+
+  final groqConfiguration = Configuration(
+    model: "qwen/qwen3-32b", // Set a different model
+    temperature: 0.7,
+    seed: 10,
   );
 
-  final List<ChatMessage> _messages = [];
+  /// flutter run --dart-define=groqApiKey='Your Api Key'
+  late final _groq = Groq(
+    apiKey: const String.fromEnvironment('groqApiKey'),
+    configuration: groqConfiguration,
+  );
 
   @override
   void initState() {
     super.initState();
-    // Set custom instructions when initializing
-    _groq.setCustomInstructionsWith(
-      "You are a helpful chat assistant for a Flutter app. " +
-      "Respond concisely and be supportive."
+    _groq.startChat();
+  }
+
+  void _handleSubmitted(String text) async {
+    _textController.clear();
+    ChatMessage message = ChatMessage(
+      text: text,
+      isUserMessage: true,
+    );
+    setState(() {
+      _messages.add(message);
+    });
+
+    _scrollToBottomWithDelay(
+      const Duration(milliseconds: 200),
+    );
+
+    _sendMessage(text);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('GroqChat'),
+        actions: [_buildClearChatButton()],
+      ),
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            Flexible(
+              child: ListView.builder(
+                controller: _scrollController,
+                itemCount: _messages.length,
+                itemBuilder: (_, int index) => _messages[index],
+              ),
+            ),
+            const Divider(height: 1.0),
+            Container(
+              decoration: BoxDecoration(
+                color: Theme.of(context).cardColor,
+              ),
+              child: _buildTextComposer(),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
-  void _sendMessage(String text) async {
-    // Add user message
-    setState(() {
-      _messages.add(ChatMessage(text: text, isUserMessage: true));
-    });
+  Widget _buildClearChatButton() {
+    return IconButton(
+      onPressed: () {
+        _groq.clearChat();
+      },
+      icon: const Icon(Icons.delete),
+    );
+  }
 
-    // Get AI response
+  Widget _buildTextComposer() {
+    return IconTheme(
+      data: IconThemeData(color: Theme.of(context).colorScheme.secondary),
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: Row(
+          children: <Widget>[
+            Flexible(
+              child: TextField(
+                controller: _textController,
+                decoration: const InputDecoration(
+                  hintText: 'Send a message',
+                  contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
+                  border: InputBorder.none,
+                ),
+              ),
+            ),
+            IconButton(
+              icon: const Icon(Icons.send),
+              onPressed: () => _handleSubmitted(_textController.text),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  _scrollToBottomWithDelay(Duration delay) async {
+    await Future.delayed(delay);
+    _scrollController.animateTo(
+      _scrollController.position.maxScrollExtent,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
+  }
+
+  _sendMessage(String text) async {
     try {
       GroqResponse response = await _groq.sendMessage(text);
+
+      ChatMessage responseMessage = ChatMessage(
+        text: response.choices.first.message.content,
+        isUserMessage: false,
+      );
+
       setState(() {
-        _messages.add(ChatMessage(
-          text: response.choices.first.message.content, 
-          isUserMessage: false
-        ));
+        _messages.add(responseMessage);
       });
     } on GroqException catch (error) {
-      // Handle errors
+      ErrorMessage errorMessage = ErrorMessage(
+        text: error.message,
+      );
+
       setState(() {
-        _messages.add(ErrorMessage(text: error.message));
+        _messages.add(errorMessage);
       });
     }
+    _scrollToBottomWithDelay(
+      const Duration(milliseconds: 300),
+    );
   }
 }
 ```
 
 ## Supported Models
 The package supports various Groq AI models, including:
-- `gemma-7b-it`
-- `llama2-70b-4096`
+- qwem/qwen3-32b
+- llama-3.3-70b-versatile
+- openai/gpt-oss-120b
 - And more (check Groq documentation for latest models)
 
 ## Key Methods
