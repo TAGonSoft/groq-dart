@@ -20,7 +20,7 @@ class GroqMessage {
   GroqMessage.fromJson(Map<String, dynamic> json)
       : role = RoleMessage.values.firstWhere(
             (element) => element.toString().split('.').last == json['role']),
-        content = json['content'] as String;
+        content = json['content'] as String? ?? '';
 
   Map<String, dynamic> toJson() => {
         'role': role.name,

@@ -1,7 +1,7 @@
 import 'choices.dart';
+import 'mcp_list_tools.dart';
 import 'usage.dart';
 import 'usage_breakdown.dart';
-import 'mcp_list_tools.dart';
 import 'x_groq.dart';
 
 //
@@ -18,7 +18,7 @@ class GroqResponse {
   GroqUsage usage;
   GroqUsageBreakdown? usageBreakdown;
   List<McpListTools>? mcpListTools;
-  XGroq xGroq;
+  XGroq? xGroq;
 
   GroqResponse({
     required this.id,
@@ -31,7 +31,7 @@ class GroqResponse {
     this.serviceTier,
     this.usageBreakdown,
     this.mcpListTools,
-    required this.xGroq,
+    this.xGroq,
   });
 
   factory GroqResponse.fromJson(Map<String, dynamic> json) {
@@ -59,7 +59,9 @@ class GroqResponse {
               ),
             )
           : null,
-      xGroq: XGroq.fromJson(json['x_groq'] as Map<String, dynamic>),
+      xGroq: json['x_groq'] != null
+          ? XGroq.fromJson(json['x_groq'] as Map<String, dynamic>)
+          : null,
     );
   }
 
@@ -78,6 +80,15 @@ class GroqResponse {
     if (mcpListTools != null) {
       map['mcp_list_tools'] =
           mcpListTools!.map((item) => item.toJson()).toList();
+    }
+    if (systemFingerprint != null) {
+      map['system_fingerprint'] = systemFingerprint;
+    }
+    if (serviceTier != null) {
+      map['service_tier'] = serviceTier;
+    }
+    if (xGroq != null) {
+      map['x_groq'] = xGroq!.toJson();
     }
     return map;
   }

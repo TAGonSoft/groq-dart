@@ -15,7 +15,7 @@ class GroqUsage {
   // Total number of tokens used in the request (prompt + completion).
   int totalTokens;
 
-  // ompletion time and prompt time combined
+  // Completion time and prompt time combined
   double totalTime;
 
   // Time the requests was spent queued
@@ -41,12 +41,12 @@ class GroqUsage {
 
   GroqUsage.fromJson(Map<String, dynamic> json)
       : promptTokens = json['prompt_tokens'] as int,
-        promptTime = json['prompt_time'] as double,
+        promptTime = (json['prompt_time'] as num?)?.toDouble() ?? 0,
         completionTokens = json['completion_tokens'] as int,
-        completionTime = json['completion_time'] as double,
+        completionTime = (json['completion_time'] as num?)?.toDouble() ?? 0,
         totalTokens = json['total_tokens'] as int,
-        totalTime = json['total_time'] as double,
-        queueTime = json['queue_time'] as double,
+        totalTime = (json['total_time'] as num?)?.toDouble() ?? 0,
+        queueTime = (json['queue_time'] as num?)?.toDouble() ?? 0,
         completionTokensDetails = json['completion_tokens_details'] != null
             ? GroqUsageCompletionTokensDetails.fromJson(
                 json['completion_tokens_details'] as Map<String, dynamic>)
@@ -62,7 +62,8 @@ class GroqUsage {
         'completion_tokens': completionTokens,
         'completion_time': completionTime,
         'total_tokens': totalTokens,
-        'total_time': totalTime
+        'total_time': totalTime,
+        'queue_time': queueTime,
       };
 }
 
@@ -74,7 +75,7 @@ class GroqUsageCompletionTokensDetails {
 
   factory GroqUsageCompletionTokensDetails.fromJson(Map<String, dynamic> json) {
     return GroqUsageCompletionTokensDetails(
-      reasoningTokens: json['reasoning_tokens'] as int,
+      reasoningTokens: (json['reasoning_tokens'] as num?)?.toInt() ?? 0,
     );
   }
 
@@ -91,11 +92,11 @@ class GroqPromptTokensDetails {
 
   factory GroqPromptTokensDetails.fromJson(Map<String, dynamic> json) {
     return GroqPromptTokensDetails(
-      cachedTokens: json['cached_tokens'] as int,
+      cachedTokens: (json['cached_tokens'] as num?)?.toInt() ?? 0,
     );
   }
 
   Map<String, dynamic> toJson() => {
-        'documents_tokens': cachedTokens,
+        'cached_tokens': cachedTokens,
       };
 }

@@ -22,6 +22,6 @@ class GroqChoices {
 
   Map<String, dynamic> toJson() => {
         'index': index,
-        'message': message,
+        'message': message.toJson(),
       };
 }

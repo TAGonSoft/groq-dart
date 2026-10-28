@@ -47,8 +47,8 @@ class XGroqUsage {
   });
 
   XGroqUsage.fromJson(Map<String, dynamic> json)
-      : dramCachedTokens = json['dram_cached_tokens'] as int,
-        sramCachedTokens = json['sram_cached_tokens'] as int;
+      : dramCachedTokens = (json['dram_cached_tokens'] as num?)?.toInt() ?? 0,
+        sramCachedTokens = (json['sram_cached_tokens'] as num?)?.toInt() ?? 0;
 
   Map<String, dynamic> toJson() => {
         'dram_cached_tokens': dramCachedTokens,

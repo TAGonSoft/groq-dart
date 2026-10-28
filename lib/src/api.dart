@@ -111,7 +111,7 @@ final class Configuration {
   /// A stop sequence is a predefined or user-specified text string that
   /// signals an AI to stop generating content, ensuring its responses remain
   /// focused and concise. Examples include punctuation marks and markers
-  /// like "[end]".
+  /// like "`[end]`".
   final String? stop;
 
   // Whether to include reasoning in the response. If true, the response will

@@ -17,7 +17,7 @@ Add the following to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  groq: ^1.1.1
+  groq: ^1.2.0
 ```
 
 Then run:
