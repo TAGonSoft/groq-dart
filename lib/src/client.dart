@@ -4,7 +4,8 @@ import 'package:http/http.dart' as http;
 
 import 'api.dart';
 import 'error.dart';
-import 'model.dart';
+import 'models/request_models/groq_request.dart';
+import 'models/response_models/response.dart';
 
 final class ApiClient {
   final String _apiKey;
